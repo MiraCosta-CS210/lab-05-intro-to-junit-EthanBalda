@@ -12,7 +12,8 @@
  *   TEST SCENARIO 2
  *   Your choice!
  */
-
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 public class TipCalculator {
 {
 
