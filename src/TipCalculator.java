@@ -14,6 +14,7 @@
  */
 
 public class TipCalculator {
+{
 
     /*  This method takes the bill amount as a double and a tip percentage as an
      *  integer and returns a rounded amount for what to tip. Use a tip calculator
@@ -22,9 +23,28 @@ public class TipCalculator {
      *  For tests results that are off by 1 cent, consider it a rounding issue
      *  and adjust your test data.
      */
+    @Test
+    public void testCalculateTip_Scenario1() {
+        TipCalculator calculator = new TipCalculator();
+        double bill = 100.00;
+        int tipPercentage = 20;
+        double expectedTip = 20.00;
+        double actualTip = calculator.calculateTip(bill, tipPercentage);
+        assertEquals(expectedTip, actualTip, 0.01);
+    }
+
+    @Test
+    public void testCalculateTip_Scenario2() {
+        TipCalculator calculator = new TipCalculator();
+        double bill = 45.50;
+        int tipPercentage = 18;
+        double expectedTip = 8.19; // 45.50 * 0.18 = 8.19
+        double actualTip = calculator.calculateTip(bill, tipPercentage);
+        assertEquals(expectedTip, actualTip, 0.01);
+    }
     public double calculateTip(double bill, int percentage) {
-        float decimalPercent = ((float) percentage / 100); // Turns our integer percentage into a decimal
-        // With the true decimal calculated, the below calculates the tip and rounds to two decimal places
+        float decimalPercent = ((float) percentage / 100); //turns our integer percentage into a decimal
+        //with the true decimal calculated, the below calculates the tip and rounds to two decimal places
         return (double) Math.round((decimalPercent * bill) * 100) / 100;
     }
 }
